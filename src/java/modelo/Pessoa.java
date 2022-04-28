@@ -22,230 +22,308 @@ import util.BancoDados;
  */
 public class Pessoa {
 
-    private Long id;
-    private Endereco localizacao;
-    private String nome;
-    private String tipopessoa;
-    private String telefone;
-    private String ddd;
-    private String email;
-    private Double salario;
-    private String sexo;
-    private Date datanascimento;
-    private String cpf;
-    private String especialidade;
-    private String numcrm;
-    private String estadocrm;
-    private String estadocrea;
-    private String numcrea;
-    private String tituloprofissional;
-    private Timestamp datacadastro;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getDdd() {
-        return ddd;
-    }
-
-    public void setDdd(String ddd) {
-        this.ddd = ddd;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
-
-    public String getNumCRM() {
-        return numcrm;
-    }
-
-    public void setNumCRM(String numCRM) {
-        this.numcrm = numCRM;
-    }
-
-    public String getEstadoCRM() {
-        return estadocrm;
-    }
-
-    public void setEstadoCRM(String estadoCRM) {
-        this.estadocrm = estadoCRM;
-    }
-
-    public String getEstadoCREA() {
-        return estadocrea;
-    }
-
-    public void setEstadoCREA(String estadoCREA) {
-        this.estadocrea = estadoCREA;
-    }
-
-    public String getNumCREA() {
-        return numcrea;
-    }
-
-    public void setNumCREA(String numCREA) {
-        this.numcrea = numCREA;
-    }
-
-    public String getTituloprofissional() {
-        return tituloprofissional;
-    }
-
-    public void setTituloprofissional(String tituloprofissional) {
-        this.tituloprofissional = tituloprofissional;
-    }
-
-    public Date getDatanascimento() {
-        return datanascimento;
-    }
-
-    public void setDatanascimento(Date datanascimento) {
-        this.datanascimento = datanascimento;
-    }
-
-    public Timestamp getDatacadastro() {
-        return datacadastro;
-    }
-
-    public void setDatacadastro(Timestamp datacadastro) {
-        this.datacadastro = datacadastro;
-    }
-
-    public String getTipopessoa() {
-        return tipopessoa;
-    }
-
-    public void setTipopessoa(String tipopessoa) {
-        this.tipopessoa = tipopessoa;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
+    /**
+     * @return the localizacao
+     */
     public Endereco getLocalizacao() {
         return localizacao;
     }
 
+    /**
+     * @param localizacao the localizacao to set
+     */
     public void setLocalizacao(Endereco localizacao) {
         this.localizacao = localizacao;
     }
 
-    public boolean BuscarPorId() {
-        try {
-            Connection conn = BancoDados.getConexao();
-            String sql = "SELECT * FROM tb_pessoa WHERE id = ?; ";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setLong(1, this.getId());
-            final ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                this.setId(rs.getLong("id"));
-                this.setNome(rs.getString("nome"));
-                this.setTipopessoa(rs.getString("tipopessoa"));
-                this.setTelefone(rs.getString("telefone"));
-                this.setDdd(rs.getString("ddd"));
-                this.setEmail(rs.getString("email"));
-                this.setSalario(rs.getDouble("salario"));
-                this.setSexo(rs.getString("sexo"));
-                this.setDatanascimento(rs.getDate("datanascimento"));
-                this.setCpf(rs.getString("cpf"));
-                this.setEspecialidade(rs.getString("especialidade"));
-                this.setNumCRM(rs.getString("numcrm"));
-                this.setNumCREA(rs.getString("numcrea"));
-                this.setEstadoCRM(rs.getString("estadocrm"));
-                this.setEstadoCREA(rs.getString("estadocrea"));
-                this.setTituloprofissional(rs.getString("tituloprofissional"));
-                this.setDatacadastro(rs.getTimestamp("datacadastro"));
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
+    /**
+     * @return the numCRM
+     */
+    public String getNumCRM() {
+        return numCRM;
     }
+
+    /**
+     * @param numCRM the numCRM to set
+     */
+    public void setNumCRM(String numCRM) {
+        this.numCRM = numCRM;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public String getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the salario
+     */
+    public Double getSalario() {
+        return salario;
+    }
+
+    /**
+     * @param salario the salario to set
+     */
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+
+    /**
+     * @return the dataNascimento
+     */
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    /**
+     * @return the ddd
+     */
+    public String getDdd() {
+        return ddd;
+    }
+
+    /**
+     * @param ddd the ddd to set
+     */
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
+    }
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the tipopessoa
+     */
+    public String getTipopessoa() {
+        return tipopessoa;
+    }
+
+    /**
+     * @param tipopessoa the tipopessoa to set
+     */
+    public void setTipopessoa(String tipopessoa) {
+        this.tipopessoa = tipopessoa;
+    }
+
+    /**
+     * @return the especialidade
+     */
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    /**
+     * @param especialidade the especialidade to set
+     */
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+    /**
+     * @return the estadoCRM
+     */
+    public String getEstadoCRM() {
+        return estadoCRM;
+    }
+
+    /**
+     * @param estadoCRM the estadoCRM to set
+     */
+    public void setEstadoCRM(String estadoCRM) {
+        this.estadoCRM = estadoCRM;
+    }
+
+    /**
+     * @return the estadoCREA
+     */
+    public String getEstadoCREA() {
+        return estadoCREA;
+    }
+
+    /**
+     * @param estadoCREA the estadoCREA to set
+     */
+    public void setEstadoCREA(String estadoCREA) {
+        this.estadoCREA = estadoCREA;
+    }
+
+    /**
+     * @return the numCREA
+     */
+    public String getNumCREA() {
+        return numCREA;
+    }
+
+    /**
+     * @param numCREA the numCREA to set
+     */
+    public void setNumCREA(String numCREA) {
+        this.numCREA = numCREA;
+    }
+
+    /**
+     * @return the tituloProfissional
+     */
+    public String getTituloProfissional() {
+        return tituloProfissional;
+    }
+
+    /**
+     * @param tituloProfissional the tituloProfissional to set
+     */
+    public void setTituloProfissional(String tituloProfissional) {
+        this.tituloProfissional = tituloProfissional;
+    }
+
+    /**
+     * @return the dtcadastro
+     */
+    public Timestamp getDtcadastro() {
+        return dtcadastro;
+    }
+
+    /**
+     * @param dtcadastro the dtcadastro to set
+     */
+    public void setDtcadastro(Timestamp dtcadastro) {
+        this.dtcadastro = dtcadastro;
+    }
+
+    private long id;
+    private String cpf;
+    private double salario;
+    private Date dataNascimento;
+    private String ddd;
+    private String telefone;
+    private String email;
+    private String tipopessoa;
+    private String especialidade;
+    private String estadoCRM;
+    private String estadoCREA;
+    private String numCREA;
+    private String numCRM;
+    private String tituloProfissional;
+    private Timestamp dtcadastro;
+    private String sexo;
+    private String nome;
+    private Endereco localizacao;
 
     public boolean Cadastrar() {
         try {
 
             Connection conn = BancoDados.getConexao();
             String sql = "INSERT INTO tb_pessoa ";
-            sql += " (nome, tipopessoa, telefone, ddd, "
-                    + "email, salario, sexo, datanascimento, cpf, especialidade, numcrm,"
-                    + "estadocrm, estadocrea, tituloprofissional) ";
-            sql += " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            sql += " (nome, cpf, datanascimento, sexo, ddd, "
+                    + "telefone, email, tipopessoa, salario, "
+                    + "especialidade, estadocrm, numcrm, "
+                    + "estadocrea, numcrea, tituloprofissional)";
+            sql += " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
             PreparedStatement ps = conn.prepareStatement(sql,
                     Statement.RETURN_GENERATED_KEYS);
-            //nome, tipopessoa, telefone, ddd, email, salario, sexo, datanascimento, cpf, especialidade, numcrm, numcrea, estadocrm, estadocrea, tituloprofissional, datacadastro
+           
             ps.setString(1, this.getNome());
-            ps.setString(2, this.getTipopessoa());
-            ps.setString(3, this.getTelefone());
-            ps.setString(4, this.getDdd());
-            ps.setString(5, this.getEmail());
-            ps.setDouble(6, this.getSalario());
-            ps.setString(7, this.getSexo());
-            ps.setDate(8, this.getDatanascimento());
-            ps.setString(9, this.getCpf());
+            ps.setString(2, this.getCpf());
+            ps.setDate(3, this.getDataNascimento());
+            ps.setString(4, this.getSexo());
+            ps.setString(5, this.getDdd());
+            ps.setString(6, this.getTelefone());
+            ps.setString(7, this.getEmail());
+            ps.setString(8, this.getTipopessoa());
+            ps.setDouble(9, this.getSalario());
             ps.setString(10, this.getEspecialidade());
-            ps.setString(11, this.getNumCRM());
-            ps.setString(12, this.getEstadoCRM());
+            ps.setString(11, this.getEstadoCRM());
+            ps.setString(12, this.getNumCRM());
             ps.setString(13, this.getEstadoCREA());
-            ps.setString(14, this.getTituloprofissional());
+            ps.setString(14, this.getNumCREA());
+            ps.setString(15, this.getTituloProfissional());
+         
+ 
             int linhasafetadas = ps.executeUpdate();
             if (linhasafetadas > 0) {
                 final ResultSet rs = ps.getGeneratedKeys();
@@ -254,6 +332,7 @@ public class Pessoa {
                     System.out.println("O numero do id é:"
                             + lastId);
                     this.setId(lastId);
+                    
                     return true;
                 } else {
                     return false;
@@ -267,16 +346,128 @@ public class Pessoa {
         }
     }
 
-    public boolean Deletar() {
+    public List<Pessoa> ListarTodos() {
         try {
-            Connection conn = BancoDados.getConexao(); //conectar com o bando de dados e enviar os dados salvos da classe Contato.
-            String sql = "DELETE FROM tb_pessoa WHERE id = ?;";
-            PreparedStatement ps = conn.prepareStatement(sql);
 
-            ps.setLong(1, this.getId());
+            Connection conn = BancoDados.getConexao();
+            String sql = "SELECT * FROM tb_pessoa; ";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            List<Pessoa> lista = new ArrayList();
+            final ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+
+                Pessoa c = new Pessoa();
+                c.setId(rs.getInt("id"));
+                c.setNome(rs.getString("nome"));
+                c.setCpf(rs.getString("cpf"));
+                c.setDataNascimento(rs.getDate("datanascimento"));
+                c.setDdd(rs.getString("ddd"));
+                c.setTelefone(rs.getString("telefone"));
+                c.setEmail(rs.getString("email"));
+                c.setSexo(rs.getString("sexo"));
+                c.setTipopessoa(rs.getString("tipopessoa"));
+                c.setSalario(rs.getDouble("salario"));
+                c.setEspecialidade(rs.getString("especialidade"));
+                c.setEstadoCRM(rs.getString("estadocrm"));
+                c.setNumCRM(rs.getString("numcrm"));
+                c.setEstadoCREA(rs.getString("estadocrea"));
+                c.setNumCREA(rs.getString("numcrea"));
+                c.setTituloProfissional(rs.getString("tituloprofissional"));
+                c.setDtcadastro(rs.getTimestamp("dtcadastro"));
+                lista.add(c);
+            }
+            return lista;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public boolean BuscarPorId(String id) {
+
+        try {
+
+            long idcli = Long.parseLong(id);
+
+            Connection conn = BancoDados.getConexao();
+            String sql = "SELECT * FROM tb_pessoa WHERE id = ?; ";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setLong(1, idcli);
+            final ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                this.setId(rs.getInt("id"));
+                this.setNome(rs.getString("nome"));
+                this.setCpf(rs.getString("cpf"));
+                this.setDataNascimento(rs.getDate("datanascimento"));
+                this.setDdd(rs.getString("ddd"));
+                this.setTelefone(rs.getString("telefone"));
+                this.setEmail(rs.getString("email"));
+                this.setSexo(rs.getString("sexo"));
+                this.setTipopessoa(rs.getString("tipopessoa"));
+                this.setSalario(rs.getDouble("salario"));
+                this.setEspecialidade(rs.getString("especialidade"));
+                this.setEstadoCRM(rs.getString("estadocrm"));
+                this.setNumCRM(rs.getString("numcrm"));
+                this.setEstadoCREA(rs.getString("estadocrea"));
+                this.setNumCREA(rs.getString("numcrea"));
+                this.setTituloProfissional(rs.getString("tipoprofissional"));
+                this.setDtcadastro(rs.getTimestamp("dtcadastro"));
+
+                return true;
+
+            } else {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean Atualizar() {
+        try {
+            Connection conn = BancoDados.getConexao(); //conectar com o bando de dados e enviar os dados salvos da classe Pessoa.
+            String sql = "UPDATE tb_pessoa"
+                    + " SET nome = ?, "
+                    + " cpf = ?, "
+                    + " datanascimento = ?, "
+                    + " sexo = ?, "
+                    + " ddd = ?, "
+                    + " telefone = ?, "
+                    + " email = ?, "
+                    + " tipopessoa = ?, "
+                    + " salario = ?, "
+                    + " especialidade = ?, "
+                    + " estadocrm = ?, "
+                    + " numcrm = ?, "
+                    + " estadocrea = ?, "
+                    + " numcrea = ?, "
+                    + " tituloprofissional = ? "
+                    + " WHERE id = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, this.getNome());
+            ps.setString(2, this.getCpf());
+            ps.setDate(3, this.getDataNascimento());
+            ps.setString(4, this.getSexo());
+            ps.setString(5, this.getDdd());
+            ps.setString(6, this.getTelefone());
+            ps.setString(7, this.getEmail());
+            ps.setString(8, this.getTipopessoa());
+            ps.setDouble(9, this.getSalario());
+            ps.setString(10, this.getEspecialidade());
+            ps.setString(11, this.getEstadoCRM());
+            ps.setString(12, this.getNumCRM());
+            ps.setString(13, this.getEstadoCREA());
+            ps.setString(14, this.getNumCREA());
+            ps.setString(15, this.getTituloProfissional());
+            ps.setLong(16, this.getId());
             int linhasafetadas = ps.executeUpdate();
             if (linhasafetadas > 0) {
-                System.out.println("APAGOU!");
+                System.out.println("atualizou!");
                 return true;
             } else {
                 return false;
@@ -287,41 +478,26 @@ public class Pessoa {
         }
     }
 
-    public List<Pessoa> ListarTodos() {
+    public boolean Excluir(int id) {
         try {
-
-            Connection conn = BancoDados.getConexao();
-            String sql = "SELECT * FROM tb_pessoa";
+            Connection conn = BancoDados.getConexao(); //conectar com o bando de dados e enviar os dados salvos da classe Pessoa.
+            String sql = "DELETE FROM tb_pessoa WHERE id = ?; ";
             PreparedStatement ps = conn.prepareStatement(sql);
-            List<Pessoa> lista = new ArrayList();
-            final ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-//id, nome, tipopessoa, telefone, ddd, email, salario, sexo, datanascimento, cpf, especialidade, numcrm, numcrea, estadocrm, estadocrea, tituloprofissional, datacadastro
-                Pessoa p = new Pessoa();
-                p.setId(rs.getLong("id"));
-                p.setNome(rs.getString("nome"));
-                p.setTipopessoa(rs.getString("tipopessoa"));
-                p.setTelefone(rs.getString("telefone"));
-                p.setDdd(rs.getString("ddd"));
-                p.setEmail(rs.getString("email"));
-                p.setSalario(rs.getDouble("salario"));
-                p.setSexo(rs.getString("sexo"));
-                p.setDatanascimento(rs.getDate("datanascimento"));
-                p.setCpf(rs.getString("cpf"));
-                p.setEspecialidade(rs.getString("especialidade"));
-                p.setNumCRM(rs.getString("numcrm"));
-                p.setNumCREA(rs.getString("numcrea"));
-                p.setEstadoCRM(rs.getString("estadocrm"));
-                p.setEstadoCREA(rs.getString("estadocrea"));
-                p.setTituloprofissional(rs.getString("tituloprofissional"));
-                p.setDatacadastro(rs.getTimestamp("datacadastro"));
-                lista.add(p);
+            ps.setLong(1, id);
+            int linhasafetadas = ps.executeUpdate();
+            if (linhasafetadas > 0) {
+                System.out.println("Apagou!!");
+                return true;
+            } else {
+                return false;
             }
-            return lista;
-
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return null;
+            System.out.println("Erro: " + e.getMessage());
+            return false;
         }
+    }
+
+    public void setId(Endereco us) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

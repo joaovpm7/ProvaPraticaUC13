@@ -13,12 +13,16 @@ import java.sql.DriverManager;
  * @author sala305b
  */
 public class BancoDados {
-
+    
     public static Connection getConexao() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdprofissao"
-                    + "?useTimezone=true&serverTimezone=America/Sao_Paulo&autoReconnect=true&useSSL=false",
+            Class.forName("com.mysql.cj.jdbc.Driver"); //conectar com o banco de dados
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/"
+                    + "bdprofissao"
+                    + "?useTimezone=true"
+                    + "&serverTimezone=America/Sao_Paulo"
+                    + "&autoReconnect=true&useSSL=false",
                     "root", "123456");
             return conn;
         } catch (Exception e) {
@@ -26,4 +30,5 @@ public class BancoDados {
             return null;
         }
     }
+    
 }
